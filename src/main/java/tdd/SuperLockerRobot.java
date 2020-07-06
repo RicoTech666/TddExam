@@ -2,9 +2,9 @@ package tdd;
 
 import java.util.List;
 
-public class PrimaryLockerRobot extends AbstractLockerRobot {
+public class SuperLockerRobot extends AbstractLockerRobot{
 
-    PrimaryLockerRobot(List<Locker> lockerList) {
+    SuperLockerRobot (List<Locker> lockerList) {
         super(lockerList);
     }
 

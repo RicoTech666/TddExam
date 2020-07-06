@@ -4,6 +4,8 @@ package tdd;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.Arrays;
+
 public class WaiterTest {
     @Test
     public void should_return_S_ticket_when_regular_customer_store_S_bag_via_waiter_given_S_bag_S_locker_and_waiter() {
@@ -15,5 +17,17 @@ public class WaiterTest {
         Ticket ticket = waiter.store(regularCustomer);
 
         Assert.assertEquals('S', ticket.getBagSize());
+    }
+    @Test
+    public void should_return_M_ticket_when_regular_customer_store_M_bag_via_waiter_given_M_bag_M_locker_and_waiter() {
+        Locker middleLocker = new Locker('M',10,1);
+        PrimaryLockerRobot primaryLockerRobot = new PrimaryLockerRobot(Arrays.asList(middleLocker));
+        Waiter waiter = new Waiter(primaryLockerRobot);
+        Bag bag = new Bag('M');
+        Customer regularCustomer = new Customer("regular", bag);
+
+        Ticket ticket = waiter.store(regularCustomer);
+
+        Assert.assertEquals('M', ticket.getBagSize());
     }
 }
